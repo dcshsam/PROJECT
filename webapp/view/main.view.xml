@@ -1,0 +1,26 @@
+<mvc:View controllerName="SAM.SAPUI5A.controller.main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:tnt="sap.tnt" xmlns="sap.m">
+	<tnt:ToolHeader style="Clear" height="40px">
+		<Button icon="sap-icon://menu2" type="Transparent"></Button>
+		<!--	<Image height="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4HsjBxxUAlrl5thgFPmG41gc9lVGUgG21ymPZHa4qlGT05pA1xA"/>-->
+		<ToolbarSpacer/>
+		<Text text="SAP UI5 Controls" wrapping="false" class="myCustomText"/>
+		<ToolbarSpacer/>
+		<Button text="Contact Admin" type="Emphasized" class="sapUiSmallMarginEnd"/>
+	</tnt:ToolHeader>
+	<SplitApp id="splitApp" initialDetail="detail" initialMaster="master" orientationChange="onChange">
+		<detailPages></detailPages>
+		<masterPages class="sapUiDocumentationMasterPage">
+			<Page showHeader="false" class="sapUiDocumentationMasterPage">
+				<subHeader>
+					<Toolbar>
+						<SearchField liveChange="onSearch" width="100%" class="sapUiDocumentationMasterPage"></SearchField>
+						<Button icon="sap-icon://save"></Button>
+					</Toolbar>
+				</subHeader>
+				<List id="mainList" items="{output>/MainTopic/}">
+					<StandardListItem title="{output>topic}" type="Navigation" press="onMasterSelect"></StandardListItem>
+				</List>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</mvc:View>
